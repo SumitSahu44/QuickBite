@@ -1,0 +1,15 @@
+:root {
+    --Highlight-text-color: #F48E28;
+ }
+ 
+
+.header-container{
+    width: 90%;
+    margin: 0 auto;
+   }
+.Highlight-text{
+    color: var(--Highlight-text-color);
+  }
+
+ 
+

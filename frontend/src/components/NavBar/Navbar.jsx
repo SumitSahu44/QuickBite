@@ -9,7 +9,7 @@ const Navbar = () => {
     <nav>
         <div className='nav-container flex justify-between align-middle'>
             <div className='w-[150px]'>
-                <img src="images/logo.png" />
+                <img src="images/short-logo.png" />
             </div>
             <div>
                  <ul className='flex justify-between gap-12 align-middle'>
@@ -19,9 +19,9 @@ const Navbar = () => {
                     <li>Signup</li>
                  </ul>
             </div>
-            <div className='search-input-box flex px-4 py-2'>
+            <div className='search-input-box rounded-lg flex px-4 py-2'>
                 <IoSearchSharp />
-                 <input type="search" className='pl-2 w-[130px] border-r border-black mr-2' placeholder='search' />
+                 <input type="search" className='pl-2  border-r border-black mr-2' placeholder='search' />
                  <FiShoppingBag />
             </div>
         </div>
