@@ -10,7 +10,7 @@ const Header = () => {
         <Navbar />
         {/* hero section start  */}
 
-        <div className='flex mt-8 justify-between items-center'>
+        <div className='flex mt-8 justify-between items-center flex-wrap'>
             <div className='hero-left w-[50%] mt-[-30px] font-medium' >
                 <div className='text-[85px]'>
                         <p>Order Your</p>
