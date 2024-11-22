@@ -1,10 +1,5 @@
-:root {
-    --Highlight-text-color: #F48E28;
- }
 
-.Highlight-text{
-    color: var(--Highlight-text-color);
-  }
 
- 
-
+.header-container{
+  animation: FadeIn 3s;
+}

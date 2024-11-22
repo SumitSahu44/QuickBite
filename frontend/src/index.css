@@ -9,3 +9,23 @@
     font-family: Montserrat;
     font-weight: 600;
 }
+
+:root {
+    --Highlight-text-color: #F48E28;
+ }
+
+.Highlight-text{
+    color: var(--Highlight-text-color);
+  }
+
+ 
+
+@keyframes FadeIn{
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}

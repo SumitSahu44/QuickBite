@@ -1,3 +1,11 @@
+:root {
+  --Highlight-text-color: #F48E28;
+}
+
+.Highlight-text{
+  color: var(--Highlight-text-color);
+}
+
 
 .nav-container{
   align-items: center;
@@ -6,4 +14,17 @@
 .search-input-box{
     align-items: center;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.active{
+  padding-bottom: 1px;
+  border-bottom: 2px solid var(--Highlight-text-color);
+
+}
+li{
+  cursor: pointer;
+}
+
+.dot{
+
 }
