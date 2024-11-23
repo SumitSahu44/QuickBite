@@ -4,7 +4,7 @@ import './LoginPopup.css'
 const LoginPopup = ({setShowLogin}) => {
 
   const [currState,setCurrState] = useState("Login")
-
+  
   return (
     <div className='login-container'>
        <form action="" className="login-popup-container">

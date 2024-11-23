@@ -1,5 +1,4 @@
-
-import './App.css';
+import './index.css'
 import {Route, Routes} from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Cart from './pages/Cart/Cart';
@@ -8,10 +7,23 @@ import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
 
 import LoginPopup from './components/LoginPopup/LoginPopup';
 import Navbar from './components/NavBar/Navbar';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 function App() {
 
   const [showLogin,setShowLogin] = useState(false)
+
+
+  useEffect(() => {
+      if (showLogin) {
+        document.body.style.overflowY = 'hidden'; // Disable scrolling
+      } else {
+        document.body.style.overflowY = 'auto'; // Enable scrolling
+      }
+  
+      return () => {
+        document.body.style.overflowY = 'auto'; // Ensure scrolling is restored
+      };
+    }, [showLogin]);
 
 
   return (

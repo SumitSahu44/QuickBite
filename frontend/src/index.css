@@ -8,17 +8,25 @@
 *{
     font-family: Montserrat;
     font-weight: 600;
+    
 }
 
 :root {
     --Highlight-text-color: #F48E28;
  }
-
+ 
 .Highlight-text{
     color: var(--Highlight-text-color);
   }
 
- 
+
+  .home{
+    width: 90%;
+    margin: 0 auto;
+    
+  }
+
+
 
 @keyframes FadeIn{
     0%{
