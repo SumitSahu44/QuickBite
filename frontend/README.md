@@ -68,3 +68,27 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+
+
+
+
+understanding for react project strucuture how it works
+ - inside public holder we paste images or static files
+ - inside src folder we make components or pages folder as per our need or we can direct build our components withour any holder
+ - for one page to other page we use thispackage: import {Route, Routes} from 'react-router-dom';
+
+ - after import it we define a tag with attribute
+   - 
+       <Routes>
+          <Route path='/' element={<Home/>} />
+          <Route path='/cart' element={<Cart/>} />
+          <Route path='/order' element={<PlaceOrder/>} />
+       </Routes>
+
+
+       
+
+
