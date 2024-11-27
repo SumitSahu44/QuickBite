@@ -5,7 +5,7 @@ const Cart = () => {
   
   return (
   
- <div className='bg-gray-100 flex justify-center items-center min-h-screen'>
+ <div className='flex justify-center items-center min-h-screen'>
 
 <div className='bg-white rounded-lg shadow-lg p-6 w-full max-w-4xl'>
           <table className='w-full text-left border-collapse'>
