@@ -1,5 +1,6 @@
 import React, {  } from 'react'
 import './Cart.css'
+import { RxCross2 } from "react-icons/rx";
 const Cart = () => {
 
   
@@ -14,8 +15,9 @@ const Cart = () => {
                   <th className="py-2 px-4 text-gray-600 font-semibold">Items</th>
                   <th className="py-2 px-4 text-gray-600 font-semibold text-center">Qty</th>
                   <th className="py-2 px-4 text-gray-600 font-semibold text-center">Price</th>
-                  <th className="py-2 px-4 text-gray-600 font-semibold text-right">Total</th>
-                </tr>
+                  <th className="py-2 px-4 text-gray-600 font-semibold text-center">Total</th>
+                  <th className="py-2 px-4 text-gray-600 font-semibold text-center">Remove</th>
+                 </tr>
             </thead>
             <tbody>
                    <tr className="border-b border-gray-200">
@@ -34,8 +36,9 @@ const Cart = () => {
                           </div>
                      </td>
                      <td className="py-4 px-4 text-center text-gray-800 font-medium">$565.00 </td>
-                     <td className="py-4 px-4 text-right text-gray-800 font-medium">$565.00 </td>
-
+                     <td className="py-4 px-4 text-center text-gray-800 font-medium">$565.00 </td>
+                     <td className="py-4 px-4 text-center text-gray-800 font-medium">X</td>
+          
                    </tr>
                    <tr class="border-b border-gray-200">
           <td class="py-4 px-4 flex items-center space-x-4">
@@ -53,7 +56,9 @@ const Cart = () => {
             </div>
           </td>
           <td class="py-4 px-4 text-center text-gray-800 font-medium">$399.00</td>
-          <td class="py-4 px-4 text-right text-gray-800 font-medium">$399.00</td>
+          <td class="py-4 px-4 text-center text-gray-800 font-medium">$399.00</td>
+          <td className="py-4 px-4 text-center text-gray-800 font-medium">X</td>
+         
         </tr>
         
                    <tr class="border-b border-gray-200">
@@ -73,6 +78,7 @@ const Cart = () => {
           </td>
           <td class="py-4 px-4 text-center text-gray-800 font-medium">$399.00</td>
           <td class="py-4 px-4 text-right text-gray-800 font-medium">$399.00</td>
+          <td className="py-4 px-4 text-center text-gray-800 font-medium">X</td>
         </tr>
 
 
