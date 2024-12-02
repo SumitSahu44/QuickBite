@@ -1,13 +1,14 @@
 const dotenv = require('dotenv')
 const express = require('express');
+const userAPI = require('./routes/userAPI');
+const adminAPI = require('./routes/adminAPI');
+
 const app = express();
-dotenv.config()
+dotenv.config();
 
+app.use('/api', userAPI);
+app.use('/admin/api', adminAPI);
 
-
-app.get('/',(req,res)=>{
-    res.send("")
-})
 
 
 const PORT = process.env.PORT || 9000; // Default to 3000 if PORT is not defined
