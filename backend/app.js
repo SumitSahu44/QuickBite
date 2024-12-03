@@ -1,9 +1,7 @@
 const dotenv = require('dotenv')
 const express = require('express');
-const userAPI = require('./routes/userAPI');
-const adminAPI = require('./routes/adminAPI');
 const connectDB = require('./config/db');
-
+const foodRoute = require('./routes/foodRoute')
 const app = express();
 dotenv.config();
 
@@ -12,9 +10,9 @@ dotenv.config();
 // db connect
 connectDB();
 
+// api endpoint
+app.use('/api/food', foodRoute);
 
-app.use('/api', userAPI);
-app.use('/admin/api', adminAPI);
 
 const PORT = process.env.PORT || 9000; // Default to 3000 if PORT is not defined
 app.listen(PORT,()=>{
