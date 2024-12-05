@@ -6,6 +6,10 @@ const app = express();
 dotenv.config();
 
 
+// Middleware for parsing JSON
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 
 // db connect
 connectDB();
