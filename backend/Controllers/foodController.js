@@ -25,4 +25,15 @@ const addFood = async(req,res)=>{
 }
 
 
-module.exports = {addFood}
+// all food list
+const listfood = async (req,res)=>{
+        try{
+            const foods = await foodModel.find({});
+            res.json({succes:true,data:foods})
+        }
+        catch(error){
+            console.log(error)
+            res.json({success:false,message:"Error"})
+        }
+      }
+module.exports = {addFood, listfood}
