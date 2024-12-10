@@ -2,12 +2,14 @@ import React from 'react'
 import './Add.css'
 import { assets } from '../../assets/assets'
 import { useState } from 'react'
+
 import axios from 'axios'
+import { toast } from 'react-toastify'
 // import { useEffect } from 'react'
 const Add = () => {
   const url = "http://localhost:5000";
 
-  const [image,setImage] = useState(null)
+  const [image,setImage] = useState(false)
  const [data, setData] = useState({
     name:"",
     description:"",
@@ -40,14 +42,15 @@ const Add = () => {
         console.log(response)
         if(response.data.success)
         {
+          JSON.stringify(response);
            setData({
             name:"",
             description:"",
             price:"",
             category:"Breakfast"
          })
-         setImage(null);
-         console.log(data)
+         setImage(false);
+         toast.success(response.data.message)
         }else{
              alert("hi")
         }

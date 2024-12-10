@@ -2,6 +2,7 @@ const dotenv = require('dotenv')
 const express = require('express');
 const connectDB = require('./config/db');
 const foodRoute = require('./routes/foodRoute')
+const cors = require('cors');
 const app = express();
 dotenv.config();
 
@@ -13,6 +14,8 @@ app.use("/images", express.static('uploads'))
 
 // db connect
 connectDB();
+
+app.use(cors());
 
 // api endpoint
 app.use('/api/food', foodRoute);
