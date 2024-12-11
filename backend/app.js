@@ -3,6 +3,7 @@ const express = require('express');
 const connectDB = require('./config/db');
 const foodRoute = require('./routes/foodRoute')
 const cors = require('cors');
+const userRouter = require('./routes/userRoute');
 const app = express();
 dotenv.config();
 
@@ -10,7 +11,6 @@ dotenv.config();
 // Middleware for parsing JSON
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/images", express.static('uploads'))
 
 // db connect
 connectDB();
@@ -19,7 +19,8 @@ app.use(cors());
 
 // api endpoint
 app.use('/api/food', foodRoute);
-
+app.use("/images", express.static('uploads'))
+app.use("/api/user", userRouter)
 
 const PORT = process.env.PORT || 9000; // Default to 3000 if PORT is not defined
 app.listen(PORT,()=>{
