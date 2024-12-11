@@ -52,7 +52,7 @@ const Add = () => {
          setImage(false);
          toast.success(response.data.message)
         }else{
-             alert("hi")
+          toast.error(response.data.message)
         }
  }
 
