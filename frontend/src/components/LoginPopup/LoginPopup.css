@@ -73,3 +73,7 @@
     color: var(--Highlight-text-color);
     font-weight: 500;
 }
+
+.cursor{
+    cursor: pointer;
+}
