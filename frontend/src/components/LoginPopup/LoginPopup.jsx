@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { ImCross } from "react-icons/im";
 import './LoginPopup.css'
+import axios from 'axios'
 const LoginPopup = ({setShowLogin}) => {
-
+ const url = "http://localhost:5000"
   const [currState,setCurrState] = useState("Login")
   const[data,setData] = useState({
      name:"",
@@ -18,10 +19,30 @@ const LoginPopup = ({setShowLogin}) => {
        setData(data=>({...data,[name]:value}))
   }
 
+  const onLogin = async (event)=>{
+        event.preventDefault();
+        let newURl = url;
+        if(currState==="Login")
+        {
+         newURl += "/api/user/login"
+        }else{
+         newURl += "/api/user/register" 
+        }
+
+         const response = await axios.post(newURl, data);
+         if(response.data.success)
+         {
+            localStorage.setItem("token", response.data.token)
+            setShowLogin(false)
+         }else{
+            alert(response.data.message);
+         }
+
+  }
 
   return (
     <div className='login-container'>
-       <form action="" className="login-popup-container">
+       <form onSubmit={onLogin} className="login-popup-container">
          <div className="login-popup-title">
             <h2>{currState}</h2>
             <ImCross onClick={()=>{setShowLogin(false)}} className='cross-icon' />
@@ -34,7 +55,7 @@ const LoginPopup = ({setShowLogin}) => {
             <input name='password' onChange={onChangeHandler} value={data.password} type="password" placeholder='Password' required="" />
         
          </div>
-          <button>{currState==="Sign Up"?"Create account":"Login"}</button>
+          <button type='submit'>{currState==="Sign Up"?"Create account":"Login"}</button>
           <div className="login-popup-condition">
              <input type="checkbox" required />
              <p>By continuing, i agree to the terms of use & private policy.</p>
