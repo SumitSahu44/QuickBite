@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { IoSearchSharp } from "react-icons/io5";
 import { FiShoppingBag } from "react-icons/fi";
+import { CgProfile } from "react-icons/cg";
 import './Navbar.css'
 import { Link } from 'react-router-dom';
 
@@ -9,7 +10,7 @@ const Navbar = ({setShowLogin}) => {
 
   const [menu, setMenu] = useState("home") ;
   
-
+ const token = localStorage.getItem("token")
 
   return (
     <nav>
@@ -22,7 +23,14 @@ const Navbar = ({setShowLogin}) => {
                     <li onClick={()=>{setMenu("home")}} className={menu==='home' ? "active":''}>Home</li>
                     <li onClick={()=>{setMenu("about")}} className={menu==="about"?'active':''}>About</li>
                     <li onClick={()=>{setMenu("menu")}} className={menu==="menu"?'active':''}>Menu</li>
-                    <li onClick={()=>{setShowLogin(true);setMenu("signIn")}}>SignIn</li>
+
+                    {
+                        !token ? <li onClick={()=>{setShowLogin(true);setMenu("signIn")}}>SignIn</li> : 
+                        <div className='navbar-profile'>
+                             <CgProfile/>
+                        </div>
+                    }
+                    
                  </ul>
             </div>
             <div className='search-input-box rounded-lg flex px-4 py-2'>
