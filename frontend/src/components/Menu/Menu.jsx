@@ -1,7 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaStar } from "react-icons/fa";
-
+import axios from 'axios'
 const Product = () => {
+   const [food_list, setFoodList] = useState();
+   const url = "http://localhost:5000";
+   
+   const fetchFoodList = async ()=>{
+      try {
+          const list = await axios.get(`${url}/api/food/list`)
+          if(list.data.success)
+          {
+             console.log(list.data.data)
+             setFoodList(list.data.data)
+          }else{
+            alert(list.data.message)
+          }
+      } catch (error) {
+        
+         console.log(error)
+      }
+   }
+
+   useEffect(()=>{
+       fetchFoodList();   
+   },[])
+
+  
   return (
 
    <div className='menu-container'>
