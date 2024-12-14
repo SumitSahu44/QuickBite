@@ -53,7 +53,7 @@ const Product = () => {
               <div>
                 <span className="text-[15px] font-normal items-center">
                   <FaStar className="text-[var(--Highlight-text-color)] float-left mt-[3px] mr-[3px]" />
-                  {food.rating || "N/A"} {/* Dynamic rating */}
+                  {food.rating || ""} {/* Dynamic rating */}
                 </span>
                 <p className="text-[15px] font-normal ">
                   ${food.price || "N/A"} {/* Dynamic price */}
