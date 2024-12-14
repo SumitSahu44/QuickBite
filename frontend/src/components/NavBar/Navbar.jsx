@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { IoSearchSharp } from "react-icons/io5";
-import { FiShoppingBag } from "react-icons/fi";
+import { FiShoppingBag } from "react-icons/fi"
+import { IoLogOut } from "react-icons/io5";;
 import { CgProfile } from "react-icons/cg";
+import { FaBagShopping } from "react-icons/fa6";
 import './Navbar.css'
 import { Link } from 'react-router-dom';
 
@@ -28,6 +30,11 @@ const Navbar = ({setShowLogin}) => {
                         !token ? <li onClick={()=>{setShowLogin(true);setMenu("signIn")}}>SignIn</li> : 
                         <div className='navbar-profile'>
                              <CgProfile/>
+                             <ul>
+                              <li><FaBagShopping/>Orders</li>
+                              <li><IoLogOut/>Logout</li>
+                             
+                             </ul>
                         </div>
                     }
                     
