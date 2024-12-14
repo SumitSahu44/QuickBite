@@ -33,6 +33,7 @@ li{
 .navbar-profile{
   font-size: 23px;
   position: relative;
+  cursor: pointer;
 }
 .nav-profile-dropdown{
   position: absolute;
@@ -51,4 +52,8 @@ li{
   border: 1px solid var(--Highlight-text-color);
   outline: 2px solid white;
   list-style: none;
+}
+
+.nav-profile-dropdown li:hover{
+  color: var(--Highlight-text-color);
 }

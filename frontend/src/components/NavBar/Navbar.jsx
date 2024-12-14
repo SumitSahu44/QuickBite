@@ -1,5 +1,5 @@
 import React, { useState } from 'react'; // React-related imports first
-import { Link } from 'react-router-dom'; // Third-party library imports
+import { Link, useNavigate } from 'react-router-dom'; // Third-party library imports
 import { IoSearchSharp, IoLogOut } from 'react-icons/io5';
 import { FiShoppingBag } from 'react-icons/fi';
 import { CgProfile } from 'react-icons/cg';
@@ -12,6 +12,11 @@ const Navbar = ({setShowLogin}) => {
   const [menu, setMenu] = useState("home") ;
   
  const token = localStorage.getItem("token")
+ const navigate = useNavigate();
+ const Logout = ()=>{
+     localStorage.removeItem("token");
+     navigate("/")
+ }
 
   return (
     <nav>
@@ -31,7 +36,7 @@ const Navbar = ({setShowLogin}) => {
                              <CgProfile/>
                              <ul className='nav-profile-dropdown'>
                               <li className="flex items-center gap-x-2 text-[16px]"><FaBagShopping/>Orders</li>
-                              <li className="flex items-center gap-x-2 text-[16px]"><IoLogOut/>Logout</li>
+                              <li onClick={Logout} className="flex items-center gap-x-2 text-[16px]"><IoLogOut/>Logout</li>
                              
                              </ul>
                         </div>
