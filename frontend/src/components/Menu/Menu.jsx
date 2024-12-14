@@ -39,7 +39,7 @@ const Product = () => {
           >
             <img
               src={`${url}/images/${food.image}`} // Proper template string usage
-              className="rounded-t-3xl"
+              className="rounded-t-3xl w-full "
               alt={food.name || "Product Image"} // Dynamic alt text
             />
             <div className="flex justify-between px-5 py-3 items-start">
