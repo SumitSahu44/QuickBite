@@ -31,7 +31,7 @@ const Product = () => {
           <h2 className='text-[25px] text-center font-bold'>Most Popular Items</h2>
 
       <div className='flex justify-between gap-[30px]  flex-wrap'>
-          
+          {/* show data  */}
       {food_list.map((food, index) => (
           <div
             key={index} // Always provide a unique key for mapped elements
