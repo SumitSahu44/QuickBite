@@ -35,22 +35,7 @@ function App() {
   <div className='home'>
       
       <Navbar setShowLogin={setShowLogin}/>
-      
-       {/* <div>
-          <p className='text-sm mt-[120px] text-center text-[var(--Highlight-text-color)]'>Product</p>
-          <h2 className='text-[25px] text-center font-bold'>Most Popular Items</h2>
-          
-          <Product/>
-       </div> */}
-
-
-       {/* <div>
-          <p className='text-sm mt-[120px] text-center text-[var(--Highlight-text-color)]'>Services</p>
-       </div> */}
-       
-
-
-       <Routes>
+           <Routes>
           <Route path='/' element={<Home/>} />
           <Route path='/cart' element={<Cart/>} />
           <Route path='/order' element={<PlaceOrder/>} />
