@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { ImCross } from "react-icons/im";
 import './LoginPopup.css'
 import axios from 'axios'
+
+// it only show when user click on signin button 
 const LoginPopup = ({setShowLogin}) => {
  const url = "http://localhost:5000"
   const [currState,setCurrState] = useState("Login")
