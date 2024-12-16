@@ -89,6 +89,10 @@ understanding for react project strucuture how it works
        </Routes>
 
 
-       
+<!-- work done -->
+<!-- -- login done
+-- registration -->
+
+
 
 
