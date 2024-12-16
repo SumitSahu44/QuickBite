@@ -95,4 +95,8 @@ understanding for react project strucuture how it works
 
 
 
+<!-- work pending  -->
+  add to cart
+  show orders details on user side
+  
 
