@@ -10,7 +10,7 @@ const Product = () => {
       try {
          const response = await axios.get(`${url}/api/food/list`);
          if (response.data.success) {
-           console.log(response.data.data);
+          //  console.log(response.data.data);
            setFoodList(response.data.data);
          } else {
            alert(response.data.message);
@@ -24,6 +24,15 @@ const Product = () => {
        fetchFoodList();   
    },[])
 
+
+   const addToCart = (foodId)=>{
+    alert("added")
+     setCart(foodId)
+   }
+
+    useEffect(()=>{
+         console.log(cart);
+    },[cart])
   
   return (
 
@@ -47,7 +56,7 @@ const Product = () => {
               <div>
                 <h3>{food.name}</h3> {/* Use actual food name */}
                 <p>{food.description}</p>
-                <button className="bg-[var(--Highlight-text-color)] mt-2 px-[10px] py-[7px] rounded-full text-[10px] text-white">
+                <button onClick={()=>{addToCart(food._id)}} className="bg-[var(--Highlight-text-color)] mt-2 px-[10px] py-[7px] rounded-full text-[10px] text-white">
                   Add To Cart
                 </button>
               </div>
