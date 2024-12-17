@@ -3,6 +3,7 @@ import { FaStar } from "react-icons/fa";
 import axios from 'axios'
 const Product = () => {
    const [food_list, setFoodList] = useState([]);
+   const [cart, setCart] = useState([]);
    const url = "http://localhost:5000";
    
    const fetchFoodList = async ()=>{
