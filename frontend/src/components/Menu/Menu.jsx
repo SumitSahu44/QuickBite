@@ -26,7 +26,7 @@ const Product = () => {
 
 
    const addToCart = (foodId)=>{
-    alert("added")
+    //  alert("added")
      setCart(foodId)
    }
 
