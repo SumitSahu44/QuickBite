@@ -26,8 +26,25 @@ const Product = () => {
 
 
    const addToCart = (foodId)=>{
-    //  alert("added")
-     setCart(foodId)
+         let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Check if the item already exists in the cart
+        const existingItemIndex = cart.findIndex(item => item.foodId === foodId);
+
+        if (existingItemIndex !== -1) {
+          // If the item exists, increment its quantity
+          cart[existingItemIndex].quantity += 1;
+        } else {
+          // If the item doesn't exist, add it to the cart
+          cart.push({ foodId, quantity: 1 });
+        }
+
+        // Save the updated cart back to localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // Optionally, update a state variable to reflect the cart changes in the UI
+        setCart(cart); // Assuming `setCart` updates a state in your app
+        alert("Item added to cart!");
    }
 
     useEffect(()=>{
