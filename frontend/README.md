@@ -101,4 +101,9 @@ understanding for react project strucuture how it works
 
 <!-- payment gateway  -->
 <!-- order status -->
+<!-- 
+we can perfome add to cart functionallity
+  before user registertaion and after user Registration
+  both have their advantages and disadvantages
 
+   -->
