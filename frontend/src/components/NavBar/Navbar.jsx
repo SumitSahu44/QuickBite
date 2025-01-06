@@ -10,13 +10,16 @@ import './Navbar.css'; // Local file imports come last
 const Navbar = ({setShowLogin}) => {
 
   const [menu, setMenu] = useState("home") ;
-  
+  // const [cart, setCart] = us 
  const token = localStorage.getItem("token")
  const navigate = useNavigate();
  const Logout = ()=>{
      localStorage.removeItem("token");
      navigate("/")
  }
+
+
+
 
   return (
     <nav>
