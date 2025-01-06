@@ -114,3 +114,7 @@ we can perfome add to cart functionallity
 
    <!-- using context api
    and using pass as a props food id -->
+
+   <!-- we can store user cart items in localstorage  -->
+
+   
