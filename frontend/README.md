@@ -117,4 +117,7 @@ we can perfome add to cart functionallity
 
    <!-- we can store user cart items in localstorage  -->
 
-   
+   <!-- cart {
+     productId: 9902u09,
+     quantity: 2
+   } -->
