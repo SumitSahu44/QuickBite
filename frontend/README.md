@@ -107,3 +107,10 @@ we can perfome add to cart functionallity
   both have their advantages and disadvantages
 
    -->
+
+
+
+   <!-- in this we use before registration user can add to cart items -->
+
+   <!-- using context api
+   and using pass as a props food id -->
