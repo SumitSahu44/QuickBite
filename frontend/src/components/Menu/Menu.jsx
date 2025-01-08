@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+
 import { FaStar } from "react-icons/fa";
+
 import axios from 'axios'
 const Product = () => {
    const [food_list, setFoodList] = useState([]);
@@ -44,7 +47,7 @@ const Product = () => {
 
         // Optionally, update a state variable to reflect the cart changes in the UI
         setCart(cart); // Assuming `setCart` updates a state in your app
-        alert("Item added to cart!");
+       toast.success("Item added to cart!")
    }
 
     useEffect(()=>{
