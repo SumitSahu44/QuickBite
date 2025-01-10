@@ -75,7 +75,7 @@ const Product = () => {
             <div className="flex justify-between px-5 py-3 items-start">
               <div>
                 <h3>{food.name}</h3> {/* Use actual food name */}
-                <p>{food.description}</p>
+                <p >{food.description}</p>
                 <button onClick={()=>{addToCart(food._id)}} className="bg-[var(--Highlight-text-color)] mt-2 px-[10px] py-[7px] rounded-full text-[10px] text-white">
                   Add To Cart
                 </button>
