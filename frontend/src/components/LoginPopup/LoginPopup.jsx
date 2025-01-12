@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { ImCross } from "react-icons/im";
 import './LoginPopup.css'
 import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify';
 
 // it only show when user click on signin button.
 const LoginPopup = ({setShowLogin}) => {
@@ -37,7 +38,8 @@ const LoginPopup = ({setShowLogin}) => {
             localStorage.setItem("token", response.data.token)
             setShowLogin(false)
          }else{
-            alert(response.data.message);
+            // alert(response.data.message);
+            toast.error(response.data.message)
          }
 
   }
@@ -67,6 +69,7 @@ const LoginPopup = ({setShowLogin}) => {
           :<p>Create a new account? <span onClick={()=>{setCurrState("Sign Up")}} className='cursor'>Click here</span></p>
       }
          </form>
+         <ToastContainer/>
     </div>
   )
 }
