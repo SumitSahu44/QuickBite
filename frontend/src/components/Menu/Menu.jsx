@@ -16,7 +16,8 @@ const Product = () => {
           //  console.log(response.data.data);
            setFoodList(response.data.data);
          } else {
-           alert(response.data.message);
+          toast.error(response.data.message)
+          
          }
        } catch (error) {
          console.error("Error fetching food list:", error);
