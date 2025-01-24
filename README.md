@@ -1,1 +1,1 @@
-This is a readme file
+QuickBite is a canteen meal-ordering web application designed to help students and staff order food conveniently and efficiently. The platform enables users to place orders directly from their classrooms, ensuring meals are prepared in advance and ready for pickup, reducing wait times during short lunch breaks.
