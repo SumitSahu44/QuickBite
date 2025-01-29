@@ -19,7 +19,7 @@ const Navbar = ({setShowLogin}) => {
  }
 
 
-
+ let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
   return (
     <nav>
@@ -55,7 +55,7 @@ const Navbar = ({setShowLogin}) => {
                 </div> 
                 <div className='flex'>
                 <Link to="./cart"><FiShoppingBag /></Link>  
-                <p className='mt-[-10px] text-[var(--Highlight-text-color)]'>*</p>
+                <p className='mt-[-10px] text-[var(--Highlight-text-color)]'>{cart.length <=0 ? '*' : cart.length}</p>
                 </div>
               
                 
