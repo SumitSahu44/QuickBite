@@ -1,5 +1,5 @@
 
-
+/* fade in animation for header   */
 .header-container{
   animation: FadeIn 3s;
 }
