@@ -7,7 +7,7 @@ import axios from 'axios'
 const Product = () => {
    const [food_list, setFoodList] = useState([]);
    const [cart, setCart] = useState([]);
-   const url = "http://localhost:5000";
+   const url = "http://localhost:5000"; // common url
    
   //  fetch food list from server using API 
    const fetchFoodList = async ()=>{
