@@ -9,6 +9,7 @@ const Product = () => {
    const [cart, setCart] = useState([]);
    const url = "http://localhost:5000";
    
+  //  fetch food list from server using API 
    const fetchFoodList = async ()=>{
       try {
          const response = await axios.get(`${url}/api/food/list`);
@@ -28,7 +29,7 @@ const Product = () => {
        fetchFoodList();   
    },[])
 
-
+// function for add item to cart 
    const addToCart = (foodId)=>{
          let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
