@@ -37,19 +37,28 @@ const listfood = async (req,res)=>{
         }
       }
   
- const listById = async(req,res)=>{
-    try {
-       const food = await foodModel.findByID(req.body.foodIds);
-       if(food)
-       {
-          return res.status(200).json({success:true,data:food})
-       }
-    } catch (error) {
-      console.log(error)
-      return  res.json({success:false,message:"Error"})
-    }
- }
-
+      const listById = async (req, res) => {
+        try {
+          const { foodIds } = req.body;
+      
+          if (!foodIds || !Array.isArray(foodIds) || foodIds.length === 0) {
+            return res.status(400).json({ success: false, message: "Invalid food IDs provided." });
+          }
+      
+          // Fetch food items using $in operator for multiple IDs
+          const foods = await foodModel.find({ _id: { $in: foodIds } });
+      
+          if (foods.length > 0) {
+            return res.status(200).json({ success: true, data: foods });
+          } else {
+            return res.status(404).json({ success: false, message: "No food items found for provided IDs." });
+          }
+        } catch (error) {
+          console.error("Error fetching food items:", error);
+          return res.status(500).json({ success: false, message: "Internal Server Error" });
+        }
+      };
+      
 
 
   // Remove food item 
