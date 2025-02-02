@@ -1,9 +1,30 @@
-import React, {  } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Cart.css'
 import { RxCross2 } from "react-icons/rx";
+import axios from 'axios';
 const Cart = () => {
+ const [cart, setCart] = useState([]);
+ 
 
-  
+  const fetchCart =  ()=>{
+    try {
+      const localCart =  JSON.parse(localStorage.getItem("cart")) || [];
+      setCart(localCart); // Update state with fetched cart data
+    } catch (error) {
+      console.error("Error fetching cart data:", error);
+      setCart([]); // Ensure cart is always an array to prevent errors
+    }
+
+    
+   
+  }
+
+ useEffect(()=>{
+     fetchCart()
+ },[])
+
+ alert(JSON.stringify(cart))
+ 
   return (
   
  <div className='flex justify-center items-center min-h-screen'>
