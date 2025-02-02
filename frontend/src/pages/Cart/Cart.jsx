@@ -52,7 +52,7 @@ const Cart = () => {
      fetchCart()
  },[])
 
-
+// when cart item change it will re render
  useEffect(() => {
   if (cart.length > 0) {
     fetchFoodDetails();
