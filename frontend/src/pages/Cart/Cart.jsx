@@ -22,7 +22,7 @@ const Cart = () => {
 
 
 
-
+// get food list using cart stored foodId 
   const fetchFoodDetails = async () => {
     if (cart.length === 0) return;
 
