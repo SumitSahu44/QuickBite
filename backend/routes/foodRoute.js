@@ -21,6 +21,6 @@ const upload = multer({storage:storage})
 foodRouter.post('/add',upload.single("image"),addFood)
 foodRouter.get('/list',listfood)
 foodRouter.post('/remove', removeFood)
-foodRouter.get('/listById',listById)
+foodRouter.post('/listById',listById)
 
 module.exports = foodRouter

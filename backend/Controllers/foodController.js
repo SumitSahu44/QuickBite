@@ -36,6 +36,20 @@ const listfood = async (req,res)=>{
             return  res.json({success:false,message:"Error"})
         }
       }
+  
+ const listById = async(req,res)=>{
+    try {
+       const food = await foodModel.findByID(req.body.foodIds);
+       if(food)
+       {
+          return res.status(200).json({success:true,data:food})
+       }
+    } catch (error) {
+      console.log(error)
+      return  res.json({success:false,message:"Error"})
+    }
+ }
+
 
 
   // Remove food item 
@@ -59,4 +73,4 @@ const listfood = async (req,res)=>{
         
           }
 }    
-module.exports = {addFood, listfood, removeFood}
+module.exports = {addFood, listfood, removeFood, listById}
