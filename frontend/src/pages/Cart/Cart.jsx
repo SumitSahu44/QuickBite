@@ -4,8 +4,9 @@ import { RxCross2 } from "react-icons/rx";
 import axios from 'axios';
 const Cart = () => {
  const [cart, setCart] = useState([]);
- 
-
+ const [cartItems, setCartItems] = useState([]);
+ const [loading, setLoading] = useState(true);
+ const url = "http://localhost:5000"; // common url
   const fetchCart =  ()=>{
     try {
       const localCart =  JSON.parse(localStorage.getItem("cart")) || [];
@@ -19,11 +20,44 @@ const Cart = () => {
    
   }
 
+
+
+
+  const fetchFoodDetails = async () => {
+    if (cart.length === 0) return;
+
+    try {
+      const foodIds = cart.map((item) => item.foodId); // Extract food IDs
+      const response = await axios.post(`${url}/api/food/listById`, {
+        foodIds: foodIds, // Send array of foodIds to the backend
+      });
+
+      const foodData = response.data; // Assuming backend returns food details
+      const mergedCart = cart.map((cartItem) => {
+        const foodDetail = foodData.find((item) => item._id === cartItem.foodId);
+        return { ...cartItem, ...foodDetail }; // Merge cart item with food details
+      });
+
+      setCartItems(mergedCart);
+    } catch (error) {
+      console.error("Error fetching food details:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+
+
  useEffect(()=>{
      fetchCart()
  },[])
 
- alert(JSON.stringify(cart))
+
+ useEffect(() => {
+  if (cart.length > 0) {
+    fetchFoodDetails();
+  }
+}, [cart]);
  
   return (
   
