@@ -140,7 +140,7 @@ const Cart = () => {
             </tbody>
           </table>
 
-
+{/* cart sub tota section  */}
           <div class="mt-6 border-t border-gray-200 pt-4">
       <div class="flex justify-between items-center mb-2">
         <span class="text-gray-600">Sub Total</span>
