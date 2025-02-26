@@ -27,7 +27,7 @@ const Header = () => {
               </div>
 
             </div>
-            
+            { /* right side  cheif image  */}
             <div className='hero-right'>
                 <img src="./images/short-chef.png" className='w-[450px]' alt="" srcset="" />
             </div>
