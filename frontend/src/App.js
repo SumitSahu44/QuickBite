@@ -15,6 +15,7 @@ function App() {
 
 
   useEffect(() => {
+    // if login component is visible or true than screen overflow in Y axis is hidden for no scrolling 
       if (showLogin) {
         document.body.style.overflowY = 'hidden'; // Disable scrolling
       } else {
