@@ -30,7 +30,7 @@ function App() {
 
   return (
   <>
-   
+   {/* if showlogin is true then login component is visible  */}
    {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : ''}
 
   
