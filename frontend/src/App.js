@@ -10,6 +10,7 @@ import Navbar from './components/NavBar/Navbar';
 import { useState, useEffect } from 'react';
 function App() {
 
+  //  login component by defalut false 
   const [showLogin,setShowLogin] = useState(false)
 
 
