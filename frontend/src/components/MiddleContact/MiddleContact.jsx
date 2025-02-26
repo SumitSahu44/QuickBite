@@ -1,11 +1,12 @@
 
-import { LuClock4 } from "react-icons/lu";
+import { LuClock4 } from "react-icons/lu";// icons 
 import { FiMapPin } from "react-icons/fi";
 import { FiPhoneCall } from "react-icons/fi";
 
 const MiddleContact = () =>{
    return (
-    
+
+    // middle section start 
      <div className="flex mt-[80px] justify-around flex-wrap items-center drop-shadow-lg border py-8">
          <div className="w-[300px] h-[120px] text-center text-lg">
             <p className="bg-[var(--Highlight-text-color)] text-white inline-block rounded-full p-[8px] rounded text-2xl" ><LuClock4 /></p> 
@@ -19,7 +20,7 @@ const MiddleContact = () =>{
          </div>
          <div className="w-[300px] h-[120px] text-center text-lg">
             <p className="bg-[var(--Highlight-text-color)] text-white inline-block rounded-full p-[8px] rounded text-2xl" ><FiPhoneCall /></p> 
-             <p>+91 9999988888</p>
+             <p>+91 9399805947</p>
              <p className="text-sm font-[500]">Phone Number</p>
          </div>
        
