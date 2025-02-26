@@ -6,7 +6,7 @@ import { CgProfile } from 'react-icons/cg';
 import { FaBagShopping } from 'react-icons/fa6';
 
 import './Navbar.css'; // Local file imports come last
-
+//  set show login is for check user loged in or not 
 const Navbar = ({setShowLogin}) => {
 
   const [menu, setMenu] = useState("home") ;
@@ -19,7 +19,7 @@ const Navbar = ({setShowLogin}) => {
  }
 
 
- let cart = JSON.parse(localStorage.getItem('cart')) || [];
+ let cart = JSON.parse(localStorage.getItem('cart')) || []; { /* get cart from localstorage */}
 
   return (
     <nav>
