@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 // it only show when user click on signin button.
 const LoginPopup = ({setShowLogin}) => {
- const url = "http://localhost:5000"
+ const url = "https://quickbite-osfd.onrender.com"
   const [currState,setCurrState] = useState("Login")
   const[data,setData] = useState({
      name:"",

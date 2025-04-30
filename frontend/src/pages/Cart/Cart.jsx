@@ -6,7 +6,7 @@ const Cart = () => {
  const [cart, setCart] = useState([]);
  const [cartItems, setCartItems] = useState([]);
  const [loading, setLoading] = useState(true);
- const url = "http://localhost:5000"; // common url
+ const url = "https://quickbite-osfd.onrender.com"; // common url
   const fetchCart =  ()=>{
     try {
       const localCart =  JSON.parse(localStorage.getItem("cart")) || [];
