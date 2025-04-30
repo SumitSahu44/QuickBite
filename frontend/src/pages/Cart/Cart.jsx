@@ -7,44 +7,52 @@ const Cart = () => {
  const [cartItems, setCartItems] = useState([]);
  const [loading, setLoading] = useState(true);
  const url = "https://quickbite-osfd.onrender.com"; // common url
-  const fetchCart =  ()=>{
-    try {
-      const localCart =  JSON.parse(localStorage.getItem("cart")) || [];
-      setCart(localCart); // Update state with fetched cart data
-    } catch (error) {
-      console.error("Error fetching cart data:", error);
-      setCart([]); // Ensure cart is always an array to prevent errors
-    }
-
-    
-   
+ const fetchCart = () => {
+  try {
+    const localCart = JSON.parse(localStorage.getItem("cart")) || [];
+    console.log("Fetched local cart:", localCart);
+    setCart(localCart);
+  } catch (error) {
+    console.error("Error fetching cart data:", error);
+    setCart([]);
   }
+};
+
 
 
 
 // get food list using cart stored foodId 
-  const fetchFoodDetails = async () => {
-    if (cart.length === 0) return;
+const fetchFoodDetails = async () => {
+  if (cart.length === 0) {
+    console.log("Cart is empty, skipping fetch");
+    return;
+  }
 
-    try {
-      const foodIds = cart.map((item) => item.foodId); // Extract food IDs
-      const response = await axios.post(`${url}/api/food/listById`, {
-        foodIds: foodIds, // Send array of foodIds to the backend
-      });
+  try {
+    const foodIds = cart.map(item => item.foodId);
+    console.log("Fetching details for foodIds:", foodIds);
 
-      const foodData = response.data; // Assuming backend returns food details
-      const mergedCart = cart.map((cartItem) => {
-        const foodDetail = foodData.find((item) => item._id === cartItem.foodId);
-        return { ...cartItem, ...foodDetail }; // Merge cart item with food details
-      });
+    const response = await axios.post(`${url}/api/food/listById`, {
+      foodIds: foodIds,
+    });
 
-      setCartItems(mergedCart);
-    } catch (error) {
-      console.error("Error fetching food details:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
+    const foodData = response.data;
+    console.log("Fetched foodData:", foodData);
+
+    const mergedCart = cart.map((cartItem) => {
+      const foodItem = foodData.data.find((f) => f._id === cartItem.foodId);
+      return { ...cartItem, ...foodItem };
+    });
+    
+    console.log("Merged cartItems:", mergedCart);
+    setCartItems(mergedCart);
+  } catch (error) {
+    console.error("Error fetching food details:", error);
+  } finally {
+    setLoading(false);
+  }
+};
+
 
 
 
@@ -75,69 +83,31 @@ const Cart = () => {
                  </tr>
             </thead>
             <tbody>
-                   <tr className="border-b border-gray-200">
-                     <td className="py-4 px-4 flex items-center space-x-4">
-                          <img src="https://via.placeholder.com/50" alt="Item Image" class="w-12 h-12 rounded" />
-                          <div>
-                            <p class="font-medium text-gray-800">Gyro Sandwich</p>
-                            <p class="text-sm text-gray-500">Best one selling in these month</p>
-                          </div>
-                    </td>
-                     <td className="py-4 px-4 text-center">
-                         <div class="flex items-center justify-center space-x-2">
-                            <button class="text-orange-500 text-lg">-</button>
-                            <span class="text-gray-800 font-medium">1</span>
-                            <button class="text-orange-500 text-lg">+</button>
-                          </div>
-                     </td>
-                     <td className="py-4 px-4 text-center text-gray-800 font-medium">$565.00 </td>
-                     <td className="py-4 px-4 text-center text-gray-800 font-medium">$565.00 </td>
-                     <td className="py-4 px-4 text-center text-gray-800 font-medium">X</td>
-          
-                   </tr>
-                   <tr class="border-b border-gray-200">
-          <td class="py-4 px-4 flex items-center space-x-4">
-            <img src="https://via.placeholder.com/50" alt="Item Image" class="w-12 h-12 rounded" />
-            <div>
-              <p class="font-medium text-gray-800">Gyro Sandwich</p>
-              <p class="text-sm text-gray-500">Best one selling in these month</p>
-            </div>
-          </td>
-          <td class="py-4 px-4 text-center">
-            <div class="flex items-center justify-center space-x-2">
-              <button class="text-orange-500 text-lg">-</button>
-              <span class="text-gray-800 font-medium">1</span>
-              <button class="text-orange-500 text-lg">+</button>
-            </div>
-          </td>
-          <td class="py-4 px-4 text-center text-gray-800 font-medium">$399.00</td>
-          <td class="py-4 px-4 text-center text-gray-800 font-medium">$399.00</td>
-          <td className="py-4 px-4 text-center text-gray-800 font-medium">X</td>
-         
-        </tr>
-        
-                   <tr class="border-b border-gray-200">
-          <td class="py-4 px-4 flex items-center space-x-4">
-            <img src="https://via.placeholder.com/50" alt="Item Image" class="w-12 h-12 rounded" />
-            <div>
-              <p class="font-medium text-gray-800">Gyro Sandwich</p>
-              <p class="text-sm text-gray-500">Best one selling in these month</p>
-            </div>
-          </td>
-          <td class="py-4 px-4 text-center">
-            <div class="flex items-center justify-center space-x-2">
-              <button class="text-orange-500 text-lg">-</button>
-              <span class="text-gray-800 font-medium">1</span>
-              <button class="text-orange-500 text-lg">+</button>
-            </div>
-          </td>
-          <td class="py-4 px-4 text-center text-gray-800 font-medium">$399.00</td>
-          <td class="py-4 px-4 text-right text-gray-800 font-medium">$399.00</td>
-          <td className="py-4 px-4 text-center text-gray-800 font-medium">X</td>
-        </tr>
+  {cartItems.map((item, index) => (
+    <tr key={item._id || index} className="border-b border-gray-200">
+      <td className="py-4 px-4 flex items-center space-x-4">
+        <img src={`${url}/images/${item.image}` || "https://via.placeholder.com/50"} alt={item.name} className="w-12 h-12 rounded" />
+        <div>
+          <p className="font-medium text-gray-800">{item.name}</p>
+          <p className="text-sm text-gray-500">{item.description}</p>
+        </div>
+      </td>
+      <td className="py-4 px-4 text-center">
+        <div className="flex items-center justify-center space-x-2">
+          <button className="text-orange-500 text-lg">-</button>
+          <span className="text-gray-800 font-medium">{item.quantity}</span>
+          <button className="text-orange-500 text-lg">+</button>
+        </div>
+      </td>
+      <td className="py-4 px-4 text-center text-gray-800 font-medium">₹{item.price}</td>
+      <td className="py-4 px-4 text-center text-gray-800 font-medium">₹{item.price * item.quantity}</td>
+      <td className="py-4 px-4 text-center text-gray-800 font-medium cursor-pointer">
+        <RxCross2 />
+      </td>
+    </tr>
+  ))}
+</tbody>
 
-
-            </tbody>
           </table>
 
 {/* cart sub tota section  */}
