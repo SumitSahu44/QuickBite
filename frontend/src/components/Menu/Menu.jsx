@@ -63,26 +63,31 @@ const Product = () => {
                  className="rounded-t-3xl w-full h-[200px] object-cover"
                  alt={food.name || "Product Image"}
                />
-               <div className="flex justify-between px-5 py-3 items-start">
-                 <div>
-                   <h3>{food.name}</h3>
-                   <p>{food.description}</p>
+               <div className="flex  flex-col justify-between px-5  w-full py-3 items-start">
+                      <div className=' flex  w-[90%] justify-between'>
+                          <h3>{food.name}</h3>
+                          <div>
+                            <span className="text-[15px] font-normal items-center">
+                              <FaStar className="text-[var(--Highlight-text-color)] float-left mt-[3px] mr-[3px]" />
+                              {food.rating || ""}
+                            </span>
+                            <p className="text-[15px] font-bold whitespace-nowrap ">
+                            ₹{food.price || "N/A"}
+                            </p>
+                          </div>
+                        </div>
+                   
+                  
+                 <div className=' w-full'>
+                   <p className='text-sm mt-4 text-gray-400 h-30  '>{food.description}</p>
                    <button
                      onClick={() => { addToCart(food._id) }}
-                     className="bg-[var(--Highlight-text-color)] mt-2 px-[10px] py-[7px] rounded-full text-[10px] text-white"
+                     className="bg-[var(--Highlight-text-color)] w-full mt-4 mx-auto h-10 rounded-full text-[15px] text-white"
                    >
                      Add To Cart
                    </button>
                  </div>
-                 <div>
-                   <span className="text-[15px] font-normal items-center">
-                     <FaStar className="text-[var(--Highlight-text-color)] float-left mt-[3px] mr-[3px]" />
-                     {food.rating || ""}
-                   </span>
-                   <p className="text-[15px] font-normal ">
-                     ${food.price || "N/A"}
-                   </p>
-                 </div>
+              
                </div>
              </div>
            ))
